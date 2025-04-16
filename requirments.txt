@@ -1,0 +1,11 @@
+Flask
+Flask-Cors
+joblib
+nltk
+lime
+matplotlib
+pandas
+numpy
+scikit-learn
+seaborn
+imblearn
