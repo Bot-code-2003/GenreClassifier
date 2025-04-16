@@ -41,3 +41,19 @@ To set up and run the app locally:
 # Inside your terminal
 bash run.sh
 ```
+
+---
+
+## 🖼️ Demo Screenshots
+
+Here’s how the app looks in action:
+
+<p align="center">
+  <img src="assets/ss1.png" alt="Prediction Interface" width="700"/>
+  <br/><em>Genre prediction with probability chart</em>
+</p>
+
+<p align="center">
+  <img src="assets/ss2.png" alt="LIME Explainability" width="700"/>
+  <br/><em>Explainability view powered by LIME</em>
+</p>

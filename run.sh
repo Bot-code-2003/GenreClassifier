@@ -9,7 +9,7 @@ if [ ! -d "genre-env" ]; then
 fi
 
 # Activate the virtual environment
-source genre-env/bin/activate
+source genre-env/Scripts/activate
 echo "✅ Virtual environment activated"
 
 # Install required packages
