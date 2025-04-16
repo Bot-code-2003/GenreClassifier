@@ -368,6 +368,76 @@
         margin-bottom: 1rem;
         opacity: 0.5;
       }
+
+      /* Story Cards Styles */
+      .story-cards-section {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .story-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .story-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .story-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary-light);
+      }
+
+      .story-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--primary), var(--info));
+      }
+
+      .story-card-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        color: var(--primary-light);
+      }
+
+      .story-card-genre {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+        text-transform: capitalize;
+      }
+
+      .story-card-content {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
     </style>
   </head>
   <body>
@@ -412,7 +482,7 @@
           Documentation
         </a>
         <a
-          href="https://github.com/dharmadeep"
+          href="https://github.com/bot-code-2003"
           target="_blank"
           class="nav-link"
         >
@@ -501,6 +571,7 @@
                 />
               </svg>
               Explain
+              <span class="loader"></span>
             </button>
           </div>
         </div>
@@ -552,6 +623,117 @@
           </div>
           <div class="chart-container">
             <canvas id="genreChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story Cards Section -->
+    <div class="story-cards-section">
+      <h2 class="section-title">
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          />
+        </svg>
+        Sample Story Cards
+      </h2>
+      <div class="story-cards">
+        <div class="story-card" onclick="useStoryCard(this)">
+          <div class="story-card-title">The Dragon's Lair</div>
+          <div class="story-card-genre">Fantasy</div>
+          <div class="story-card-content">
+            The young knight ventured deep into the misty mountains, clutching
+            an ancient map that promised to lead him to the dragon's lair.
+            Legends spoke of a treasure beyond imagination, guarded by a beast
+            with scales harder than diamonds and breath that could melt stone.
+            As he approached the cave entrance, he could feel the ground
+            trembling beneath his feet.
+          </div>
+        </div>
+
+        <div class="story-card" onclick="useStoryCard(this)">
+          <div class="story-card-title">The Abandoned Mansion</div>
+          <div class="story-card-genre">Horror</div>
+          <div class="story-card-content">
+            The old mansion stood at the end of Willow Street, abandoned for
+            decades after the mysterious disappearance of the entire Blackwood
+            family. Local children whispered that on moonless nights, lights
+            could be seen moving from window to window, and the faint sound of
+            screaming could be heard. When Sarah's car broke down outside the
+            rusted gates, she had no choice but to seek shelter inside as the
+            storm intensified.
+          </div>
+        </div>
+
+        <div class="story-card" onclick="useStoryCard(this)">
+          <div class="story-card-title">The Perfect Match</div>
+          <div class="story-card-genre">Romance</div>
+          <div class="story-card-content">
+            After three failed relationships and countless disastrous dates,
+            Emma had almost given up on finding love. She poured her heart into
+            long evenings at the cozy little bookstore, surrounded by the
+            timeless beauty of fictional romances. On a rainy afternoon, just as
+            the soft patter of raindrops kissed the windowpanes, a charming
+            stranger stepped in — eyes warm, smile disarming — looking for a
+            book on gardening. Their hands met over the same title, lingering
+            slightly. A spark. A moment. Her heart skipped. They exchanged shy
+            smiles, then laughter over coffee, and suddenly, her world felt full
+            of light again. It wasn’t just a chance meeting — it was the start
+            of something beautifully unexpected. A slow-burn love story written
+            by fate.
+          </div>
+        </div>
+
+        <div class="story-card" onclick="useStoryCard(this)">
+          <div class="story-card-title">The Colony Ship</div>
+          <div class="story-card-genre">Science Fiction</div>
+          <div class="story-card-content">
+            The massive colony ship Artemis had been traveling through deep
+            space for over 200 years, carrying the last survivors of Earth
+            toward a distant habitable planet. Most of the 10,000 passengers
+            remained in cryosleep, but Engineer Chen had been awakened early by
+            the ship's AI to investigate an anomaly in the navigation system.
+            What she discovered would challenge everything the colonists
+            believed about their mission and the fate of humanity.
+          </div>
+        </div>
+
+        <div class="story-card" onclick="useStoryCard(this)">
+          <div class="story-card-title">The Missing Heiress</div>
+          <div class="story-card-genre">Crime</div>
+          <div class="story-card-content">
+            Detective Morgan was called to the luxurious penthouse of
+            billionaire industrialist Robert Harrington, whose daughter had
+            vanished without a trace. The security cameras showed her entering
+            the elevator, but she never reached the lobby. No ransom demand had
+            been made, and her personal belongings remained untouched. As Morgan
+            examined the scene, he noticed a small detail that everyone else had
+            missed – a single cufflink that didn't belong to anyone in the
+            household.
+          </div>
+        </div>
+
+        <div class="story-card" onclick="useStoryCard(this)">
+          <div class="story-card-title">The Battle of Rivercross</div>
+          <div class="story-card-genre">History</div>
+          <div class="story-card-content">
+            In the bitter winter of 1863, two armies faced each other across the
+            frozen Rivercross Valley. General Williams knew that his troops were
+            outnumbered three to one, but the narrow pass offered a strategic
+            advantage that might just save them. As dawn broke on December 17th,
+            the sound of cannons echoed through the mountains, marking the
+            beginning of a battle that would change the course of the war and be
+            studied by military historians for centuries to come.
           </div>
         </div>
       </div>
@@ -750,6 +932,7 @@
           return;
         }
 
+        // Show loading state
         document.getElementById("explainBtn").classList.add("loading");
 
         try {
@@ -774,8 +957,29 @@
             "Failed to get explanation. Please check if the API server is running."
           );
         } finally {
+          // Hide loading state
           document.getElementById("explainBtn").classList.remove("loading");
         }
+      }
+
+      // Function to use story card content
+      function useStoryCard(card) {
+        const content = card.querySelector(".story-card-content").textContent;
+        document.getElementById("storyText").value = content.trim();
+
+        // Scroll to the input area
+        document
+          .getElementById("storyText")
+          .scrollIntoView({ behavior: "smooth" });
+
+        // Add a subtle highlight effect to the card
+        card.style.transform = "scale(0.98)";
+        card.style.boxShadow = "0 0 0 2px var(--primary)";
+
+        setTimeout(() => {
+          card.style.transform = "";
+          card.style.boxShadow = "";
+        }, 300);
       }
 
       // Add keyboard shortcut (Ctrl+Enter) to predict

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Genre Classifier API Documentation</title>
+    <title>Genre Classifier Documentation</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
       rel="stylesheet"
@@ -657,9 +657,9 @@
     <main class="main-content">
       <div class="content-wrapper">
         <div class="header">
-          <h1 class="header-title">Genre Classifier API</h1>
+          <h1 class="header-title">Genre Classifier</h1>
           <p class="header-subtitle">
-            A machine learning API that classifies textual summaries into
+            A machine learning model that classifies textual summaries into
             literary genres like Fantasy, Crime, Romance, Horror, and more.
           </p>
         </div>
@@ -682,21 +682,121 @@
             </svg>
             Overview
           </h2>
-          <p>
-            This application uses a trained machine learning model to analyze
-            short texts and predict the most suitable literary genre. It
-            includes LIME explainability to highlight word-level contributions
-            to the prediction.
-          </p>
-          <p>Tech Stack:</p>
-          <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Flask</span>
-            <span class="tech-badge">scikit-learn</span>
-            <span class="tech-badge">SMOTE</span>
-            <span class="tech-badge">NLTK</span>
-            <span class="tech-badge">LIME</span>
-            <span class="tech-badge">Chart.js</span>
+
+          <div
+            class="overview-content"
+            style="display: grid; gap: 2rem; margin-top: 1.5rem"
+          >
+            <!-- Main Description -->
+            <div>
+              <p>
+                The Genre Classifier is a machine learning-based application
+                designed to identify the literary genre of a given text input
+                such as a story summary, a plot description, or a short
+                paragraph. It supports 10 popular genres including
+                <strong>Fantasy</strong>, <strong>Horror</strong>,
+                <strong>Romance</strong>, <strong>Science Fiction</strong>,
+                <strong>Crime</strong>, and more.
+              </p>
+
+              <p style="margin-top: 1rem">
+                The system is powered by a trained ensemble model combining
+                logistic regression, random forests, and gradient boosting
+                techniques. Text inputs undergo TF-IDF vectorization and are
+                balanced using SMOTE to address class imbalances in the training
+                dataset.
+              </p>
+            </div>
+
+            <!-- Explainable AI Section -->
+            <div>
+              <h3
+                style="
+                  font-size: 1.25rem;
+                  font-weight: 600;
+                  margin-bottom: 1rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <svg
+                  style="width: 20px; height: 20px"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  />
+                </svg>
+                Explainable AI
+              </h3>
+
+              <p>
+                A major feature of this application is its integration of
+                <strong
+                  >LIME (Local Interpretable Model-agnostic
+                  Explanations)</strong
+                >, which allows users to visualize which words influenced the
+                prediction and to what degree. This enhances transparency and
+                trust in model predictions.
+              </p>
+
+              <p style="margin-top: 1rem">
+                The frontend interface provides an intuitive user experience,
+                with confidence scores and an interactive bar chart built using
+                Chart.js. For deeper insight, users can generate detailed
+                explanations that reveal how the model interprets different
+                genre possibilities.
+              </p>
+            </div>
+
+            <!-- Tech Stack Section -->
+            <div>
+              <h3
+                style="
+                  font-size: 1.25rem;
+                  font-weight: 600;
+                  margin-bottom: 1rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                "
+              >
+                <svg
+                  style="width: 20px; height: 20px"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+                Tech Stack
+              </h3>
+
+              <div class="tech-stack">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Flask</span>
+                <span class="tech-badge">scikit-learn</span>
+                <span class="tech-badge">SMOTE</span>
+                <span class="tech-badge">NLTK</span>
+                <span class="tech-badge">LIME</span>
+                <span class="tech-badge">Matplotlib</span>
+                <!-- <span class="tech-badge">Chart.js</span> -->
+                <span class="tech-badge">HTML & JS</span>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1039,39 +1139,67 @@
           <div class="pipeline-step">
             <div class="pipeline-title">1. Preprocessing</div>
             <p>
-              Lowercasing, punctuation removal, stopword removal, lemmatization
-              using NLTK.
+              Input text is normalized through several NLP operations:
+              <strong>lowercasing</strong>,
+              <strong>punctuation removal</strong>,
+              <strong>stopword removal</strong>, and
+              <strong>lemmatization</strong> using <code>nltk</code>. This
+              ensures consistent representation and reduces noise before
+              vectorization.
             </p>
           </div>
 
           <div class="pipeline-step">
             <div class="pipeline-title">2. Feature Extraction</div>
-            <p>TF-IDF vectorization (unigrams + bigrams, max 10k features).</p>
-          </div>
-
-          <div class="pipeline-step">
-            <div class="pipeline-title">3. Oversampling</div>
-            <p>Using <code>SMOTE</code> to balance class labels.</p>
-          </div>
-
-          <div class="pipeline-step">
-            <div class="pipeline-title">4. Model</div>
             <p>
-              Voting Classifier (Logistic Regression + Random Forest + Gradient
-              Boosting)
+              The cleaned text is converted into numerical form using
+              <strong>TF-IDF vectorization</strong>, capturing both term
+              frequency and inverse document frequency. We use
+              <em>unigrams</em> and <em>bigrams</em> (1-2 word phrases) with a
+              max feature limit of 10,000 to retain semantic richness while
+              avoiding overfitting.
+            </p>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-title">3. Data Balancing</div>
+            <p>
+              Genre distributions are naturally imbalanced. To mitigate this, we
+              use
+              <strong>SMOTE</strong> (Synthetic Minority Over-sampling
+              Technique), which generates synthetic examples for
+              underrepresented genres — ensuring the model trains equally across
+              all classes.
+            </p>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-title">4. Model Training</div>
+            <p>
+              An <strong>ensemble voting classifier</strong> is trained using
+              three base models: <code>Logistic Regression</code>,
+              <code>Random Forest</code>, and <code>Gradient Boosting</code>.
+              Soft voting is used to average their predicted probabilities,
+              yielding a robust and generalizable final output.
             </p>
           </div>
 
           <div class="pipeline-step">
             <div class="pipeline-title">5. Explainability</div>
-            <p>LIME generates word-level importance plots per prediction.</p>
+            <p>
+              Post-prediction, we apply <strong>LIME</strong> (Local
+              Interpretable Model-agnostic Explanations) to understand why a
+              genre was selected. It highlights key words that influenced the
+              model decision, making the black-box prediction process
+              transparent and interpretable for end users.
+            </p>
           </div>
         </section>
       </div>
 
       <footer>
         Made with ❤️ by
-        <a href="https://github.com/dharmadeep" target="_blank"
+        <a href="https://github.com/bot-code-2003" target="_blank"
           >Dharmadeep Madisetty</a
         >
         •
